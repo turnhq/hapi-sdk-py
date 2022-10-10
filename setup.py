@@ -25,7 +25,6 @@ setup(
         'requests~=2.25',
         'cachecontrol~=0.12.6',
         'python-dateutil~=2.8.1',
-        'enum34~=1.1, >=1.1.10'
     ],
     tests_require=[
         'nose>=1.3.7'
