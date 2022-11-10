@@ -112,9 +112,6 @@ class CampaignsController(BaseController):
 
             # Endpoint and global error handling using HTTP status codes.
             self.logger.info('Validating response for order_campaign.')
-            if _response.status_code == 400:
-                raise OrderCampaignErrorResponseException('', _response)
-            self.validate_response(_response)
     
             decoded = json.loads(_response.text)
     
@@ -180,9 +177,7 @@ class CampaignsController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'list_campaigns')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'list_campaigns')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -238,9 +233,7 @@ class CampaignsController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'retrieve_campaign')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'retrieve_campaign')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -298,9 +291,7 @@ class CampaignsController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'check_campaign_status')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'check_campaign_status')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -365,12 +356,7 @@ class CampaignsController(BaseController):
 
             # Endpoint and global error handling using HTTP status codes.
             self.logger.info('Validating response for take_campaign_offline.')
-            if _response.status_code == 400:
-                raise TakeCampaignOfflineErrorResponse2Exception('', _response)
-            elif _response.status_code == 404:
-                raise TakeCampaignOfflineErrorResponseException('', _response)
-            self.validate_response(_response)
-    
+  
             decoded = json.loads(_response.text)
     
             return decoded

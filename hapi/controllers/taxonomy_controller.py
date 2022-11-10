@@ -76,9 +76,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'retrieve_job_functions_tree')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'retrieve_job_functions_tree')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -155,9 +153,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'search_job_titles')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'search_job_titles')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -222,9 +218,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'search_locations')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'search_locations')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -294,9 +288,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'list_industries')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'list_industries')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -342,9 +334,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'retrieve_education_levels')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'retrieve_education_levels')    
             decoded = json.loads(_response.text)
     
             return decoded
@@ -390,9 +380,7 @@ class TaxonomyController(BaseController):
             # Apply authentication scheme on request
             self.apply_auth_schemes(_request, 'token')
     
-            _response = self.execute_request(_request, name = 'retrieve_seniorities')
-            self.validate_response(_response)
-    
+            _response = self.execute_request(_request, name = 'retrieve_seniorities')    
             decoded = json.loads(_response.text)
     
             return decoded
