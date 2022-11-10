@@ -17,7 +17,7 @@ from hapi.models.location_model import LocationModel
 from hapi.models.industry_model import IndustryModel
 from hapi.models.education_level_model import EducationLevelModel
 from hapi.models.seniority_model import SeniorityModel
-
+import json
 
 class TaxonomyController(BaseController):
 
@@ -79,7 +79,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_job_functions_tree')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, JobFunctionModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -158,7 +158,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'search_job_titles')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, JobTitleModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -225,7 +225,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'search_locations')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, LocationModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -297,7 +297,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'list_industries')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, IndustryModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -345,7 +345,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_education_levels')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, EducationLevelModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -393,7 +393,7 @@ class TaxonomyController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_seniorities')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, SeniorityModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
