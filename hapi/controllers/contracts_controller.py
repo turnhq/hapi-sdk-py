@@ -19,6 +19,7 @@ from hapi.models.contract_model import ContractModel
 from hapi.models.multiple_contracts_response_model import MultipleContractsResponseModel
 from hapi.models.autocomplete_values_response_model import AutocompleteValuesResponseModel
 from hapi.exceptions.api_exception import APIException
+import json
 
 
 class ContractsController(BaseController):
@@ -94,7 +95,7 @@ class ContractsController(BaseController):
             _response = self.execute_request(_request, name = 'list_channels')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ListChannelsResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -155,7 +156,7 @@ class ContractsController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_channel')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ChannelModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -221,7 +222,7 @@ class ContractsController(BaseController):
             _response = self.execute_request(_request, name = 'list_contracts')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ListContractsResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -290,7 +291,7 @@ class ContractsController(BaseController):
                 raise APIException('', _response)
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, CreateContractResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -409,7 +410,7 @@ class ContractsController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_contract')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ContractModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -477,7 +478,7 @@ class ContractsController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_multiple_contracts')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, MultipleContractsResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -544,7 +545,7 @@ class ContractsController(BaseController):
                 raise APIException('', _response)
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, AutocompleteValuesResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 

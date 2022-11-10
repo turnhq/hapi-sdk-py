@@ -14,6 +14,7 @@ from hapi.controllers.base_controller import BaseController
 from hapi.models.product_model import ProductModel
 from hapi.models.products_delivery_time_model import ProductsDeliveryTimeModel
 from hapi.exceptions.api_exception import APIException
+import json
 
 
 class PortfolioController(BaseController):
@@ -156,7 +157,7 @@ class PortfolioController(BaseController):
                 raise APIException('', _response)
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ProductModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -219,7 +220,7 @@ class PortfolioController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_single_product')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ProductModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -282,7 +283,7 @@ class PortfolioController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_multiple_products')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ProductModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -339,7 +340,7 @@ class PortfolioController(BaseController):
             _response = self.execute_request(_request, name = 'calculate_order_delivery_time')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ProductsDeliveryTimeModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 

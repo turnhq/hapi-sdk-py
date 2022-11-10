@@ -6,7 +6,7 @@ hapi
 This file was automatically generated for VONQ by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
+import json
 import logging
 from hapi.api_helper import APIHelper
 from hapi.configuration import Server
@@ -116,7 +116,7 @@ class CampaignsController(BaseController):
                 raise OrderCampaignErrorResponseException('', _response)
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, OrderCampaignSuccessResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -183,7 +183,7 @@ class CampaignsController(BaseController):
             _response = self.execute_request(_request, name = 'list_campaigns')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ResultSet1Model.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -241,7 +241,7 @@ class CampaignsController(BaseController):
             _response = self.execute_request(_request, name = 'retrieve_campaign')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, ListCampaignResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -301,7 +301,7 @@ class CampaignsController(BaseController):
             _response = self.execute_request(_request, name = 'check_campaign_status')
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, CheckCampaignStatusresponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
@@ -371,7 +371,7 @@ class CampaignsController(BaseController):
                 raise TakeCampaignOfflineErrorResponseException('', _response)
             self.validate_response(_response)
     
-            decoded = APIHelper.json_deserialize(_response.text, TakeCampaignOfflineResponseModel.from_dictionary)
+            decoded = json.loads(_response.text)
     
             return decoded
 
