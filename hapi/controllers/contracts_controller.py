@@ -287,9 +287,6 @@ class ContractsController(BaseController):
 
             # Endpoint and global error handling using HTTP status codes.
             self.logger.info('Validating response for create_contract.')
-            if _response.status_code == 400:
-                raise APIException('', _response)
-            self.validate_response(_response)
     
             decoded = json.loads(_response.text)
     
@@ -541,9 +538,6 @@ class ContractsController(BaseController):
 
             # Endpoint and global error handling using HTTP status codes.
             self.logger.info('Validating response for list_autocomplete_values.')
-            if _response.status_code == 400:
-                raise APIException('', _response)
-            self.validate_response(_response)
     
             decoded = json.loads(_response.text)
     
